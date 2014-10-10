@@ -623,8 +623,7 @@ static void emac_handle_rx(struct emac_adapter *adpt,
 		count++;
 
 		if (srrd.genr.res || srrd.genr.lene) {
-			dev_kfree_skb(rfbuf->skb);
-			emac_warn(adpt, rx_err, "received packet has errors\n");
+			dev_kfree_skb(skb);
 			continue;
 		}
 
